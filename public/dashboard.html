@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <div id="disp"></div>
+    <button onclick="singO()">Sign out</button>
+    <input type="text">
+    <input type="text">
+    <input type="file">
+    </main>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBSjawpNjwkXIwIwetk1xQfX05_RAWd2EI",
+            authDomain: "ass-one.firebaseapp.com",
+            projectId: "ass-one",
+            storageBucket: "ass-one.appspot.com",
+            messagingSenderId: "581952540051",
+            appId: "1:581952540051:web:6fe73196cfada6fe54ac66"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log(user);
+                disp.innerHTML = `
+                <h1>${user.displayName}</h1>
+                <p>${user.email}</p>
+                <img src=${user.photoURL} alt="" style="border-radius:100%" />
+                `
+            } else {
+                window.location.href = "index.html";
+            }
+        })
+        const singO = () => {
+            signOut(auth).then(() => {
+                console.log("You are singout");
+            }).catch((error) => {
+            console.log(error);
+            });
+
+        }
+        window.singO = singO;
+    </script>
+</body>
+
+</html>
