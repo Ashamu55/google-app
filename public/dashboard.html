@@ -7,13 +7,52 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        /* display: flex; */
+        
+    }
+
+    #main{
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 235, 205, 0.506) !important;
+    margin-top: -200px;
+    }
+
+    button{
+        margin-top: 10px;
+        margin-left: 600px;
+        width: 150px;
+        padding: 8px;
+        border: none;
+        border-style: double;
+        background-color: aqua;
+        color: white;
+    }
+
+    input{
+        width: 300px;
+        padding: 10px;
+        border: none;
+    }
+
+</style>
 <body>
-    <main>
+    <main id="main" >
+    <div id="pic"></div>
     <div id="disp"></div>
-    <button onclick="singO()">Sign out</button>
     <input type="text">
     <input type="text">
+    <div>
     <input type="file">
+</div>
+    <button onclick="singO()">Sign out</button>
     </main>
 
     <script type="module">
@@ -40,9 +79,12 @@
             if (user) {
                 console.log(user);
                 disp.innerHTML = `
-                <h1>${user.displayName}</h1>
-                <p>${user.email}</p>
-                <img src=${user.photoURL} alt="" style="border-radius:100%" />
+                <div style="display: flex; justify-content: center; justify-content: space-between;">
+                <h1 style="margin-left:800px;">${user.displayName}</h1>
+                <div>
+                <img src=${user.photoURL} alt="" style="border-radius:100%; margin-left:100px;" />
+                <p>${user.email}</p></div>
+                </div>
                 `
             } else {
                 window.location.href = "index.html";
