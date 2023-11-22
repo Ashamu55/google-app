@@ -16,7 +16,7 @@
             <input type="email" class="input" placeholder="Email" id="yourEmail">
             <input type="password" class="input" placeholder="Password" id="yourPass">
             <p class="page-link">
-                <span class="page-link-label">Forgot Password?</span>
+                <!-- <span class="page-link-label">Forgot Password?</span> -->
             </p>
         </form>
         <button class="form-btn" id="signInEmail">Log in</button>
@@ -53,18 +53,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-    <!-- <button id="github">GitHub account</button> -->
-    <!-- <button id="sigin">sigin-in</button> -->
-    <!-- <button id="create">create account</button> -->
-    <!-- <button onclick="signInG()">Sign in with Google</button> -->
 
     <script type="module">
         // Import the functions you need from the SDKs you need
@@ -136,7 +124,7 @@
 
         // github logn in page //
         document.getElementById("bucket").addEventListener("click", () => {
-            alert("You have authenticated")
+            // alert("You have authenticated")
             signInWithPopup(auth, githubProvider)
                 .then((result) => {
                     let user = result.user
@@ -156,22 +144,6 @@
                     const credential = GithubAuthProvider.credentialFromError(error);
                 });
         })
-
-
-
-        // document.getElementById("github").addEventListener('click', () => {
-        // window.location.href = "github.html"
-        // })
-
-
-        // document.getElementById("create").addEventListener('click', () => {
-        // window.location.href = "create.html"
-        // })
-
-        // document.getElementById("sigin").addEventListener('click', () => {
-        // window.location.href = "signin.html"
-        // })
-
     </script>
 </body>
 
